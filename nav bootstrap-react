@@ -1,0 +1,45 @@
+import React, { PureComponent } from 'react'
+import Navbar from 'react-bootstrap/Navbar'
+import Nav from 'react-bootstrap/Nav'
+import { NavLink, BrowserRouter } from 'react-router-dom'
+class NavbarMovie extends PureComponent {
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      hasError: false,
+    }
+  }
+
+
+  render() {
+    if (this.state.hasError) {
+      return <h1>Something went wrong.</h1>
+    }
+    return (
+      <div className="NavbarMovieWrapper">
+        <BrowserRouter>
+          <Navbar  expand="lg" className={"fixed-top navbar-movie"}>
+            <NavLink to="/home">React-Bootstrap</NavLink>
+            <Navbar.Toggle aria-controls="basic-navbar-nav" />
+            <Navbar.Collapse id="basic-navbar-nav">
+              <Nav.Item>
+                <NavLink to="/home">home</NavLink>
+              </Nav.Item>
+              <Nav.Item>
+                <NavLink to="/loadMore"> loadMore</NavLink>
+              </Nav.Item>
+              <Nav.Item>
+                <NavLink to="/loadMore">Link</NavLink>
+              </Nav.Item>
+            </Navbar.Collapse>
+          </Navbar>
+        </BrowserRouter>
+        <div className="fix-top"></div>
+      </div>
+    )
+  }
+}
+
+
+export default NavbarMovie
